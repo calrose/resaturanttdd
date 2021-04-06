@@ -10,12 +10,38 @@ namespace RestaurantUnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestClass)
+		TEST_METHOD(TestRestaurantName)
 		{
+			// Make sure string is being set correctly
 			Test testObj;
 			string expected = "test";
+			string empty = "";
 			testObj.setName(expected);
 			Assert::AreEqual(expected, testObj.getName());
+			// See if things work fine with a number in the string
+			expected = "5old";
+			testObj.setName(expected);
+			Assert::AreEqual(expected, testObj.getName());
+			// Make sure that there is proper error handling for ints in the name method
+			expected = 25;
+			testObj.setName(expected);
+			Assert::AreNotEqual(expected, testObj.getName());
+			Assert::AreEqual(empty, testObj.getName());
+		}
+
+		TEST_METHOD(TestRestaurantPrices)
+		{
+			// Test to see if prices are being set correctly
+			Test testObj;
+			double expected = 5.99;
+			testObj.setPrice(expected);
+			Assert::AreEqual(expected, testObj.getPrice());
+			// Make sure precision is correct
+			double value = 10.55555;
+			expected = 10.55;
+			testObj.setPrice(value);
+			Assert::AreEqual(expected, testObj.getPrice());
+
 		}
 
 	};
