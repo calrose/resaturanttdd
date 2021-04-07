@@ -23,9 +23,9 @@ namespace RestaurantUnitTest
 			testObj.setName(expected);
 			Assert::AreEqual(expected, testObj.getName());
 			// Make sure that there is proper error handling for ints in the name method
-			expected = 25;
-			testObj.setName(expected);
-			Assert::AreNotEqual(expected, testObj.getName());
+			int incorrect = 25;
+			testObj.setName(incorrect);
+			Assert::AreNotEqual(incorrect, testObj.getName());
 			Assert::AreEqual(empty, testObj.getName());
 		}
 
@@ -34,6 +34,7 @@ namespace RestaurantUnitTest
 			// Test to see if prices are being set correctly
 			Test testObj;
 			double expected = 5.99;
+			double blank = 0.0;
 			testObj.setPrice(expected);
 			Assert::AreEqual(expected, testObj.getPrice());
 			// Make sure precision is correct
@@ -41,7 +42,11 @@ namespace RestaurantUnitTest
 			expected = 10.55;
 			testObj.setPrice(value);
 			Assert::AreEqual(expected, testObj.getPrice());
-
+			// Test error handling for incorrect data types
+			string incorrect = "wrong";
+			testObj.setPrice(incorrect);
+			Assert::AreNotEqual(incorrect, testObj.getPrice());
+			Assert::AreEqual(blank, testObj.getPrice());
 		}
 
 	};
