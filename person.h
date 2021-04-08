@@ -9,10 +9,11 @@ using namespace std;
 class TestPerson
 {
 public:
-	TestPerson():
+	TestPerson();
 	TestPerson(string name);
-	void addFood(food newFood);
+	void addFood(Food newFood, double price);
 	float getTotalCost();
+	vector<Food> getOrder();
 
 private:
 	string personName;
@@ -30,13 +31,19 @@ TestPerson::TestPerson(string name)
 	personName = name;
 }
 
-void TestPerson::addFood(food newFood)
+void TestPerson::addFood(Food newFood, double price)
 {
 	order.push_back(newFood);
+	newFood.setPrice(price);
 	totalPrice += newFood.getPrice();
 }
 
 float TestPerson::getTotalCost()
 {
 	return totalPrice;
+}
+
+vector<Food> TestPerson::getOrder()
+{
+	return order;
 }
