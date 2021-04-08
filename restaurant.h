@@ -1,39 +1,51 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
-class Food
+class Restaurant
 {
 public:
-
-	Food();
-	//~MyClass();
+	Restaurant();
 	string getName();
-	string setName(string name);
-	float getPrice();
-	float setPrice(float price);
+	string setName(string rName);
 private:
 	string name;
+};
+
+class Food : public Restaurant
+{
+public:
+	Food();
+	float getPrice();
+	float setPrice(float rPrice);
+	float roundTwo(float value);
+private:
 	float price;
 };
 
-Food::Food()
+Restaurant::Restaurant()
 {
 	name = "";
 }
 
+Food::Food()
+{
+	price = 0.0;
+}
 
-string Food::getName()
+
+string Restaurant::getName()
 {
 	return name;
 }
 
-string Food::setName(string rName)
+string Restaurant::setName(string rName)
 {
-	name = rName;
-	return name;
+		name = rName;
+		return name;
 }
 
 float Food::getPrice()
@@ -43,6 +55,23 @@ float Food::getPrice()
 
 float Food::setPrice(float rPrice)
 {
-	price = rPrice;
-	return price;
+	if (rPrice < 0.0)
+	{
+		cout << "Value " << rPrice << " is negative. Setting it to " << price << endl;
+		return price;
+	}
+	else
+	{
+		price = roundTwo(rPrice);
+		return price;
+	}
+}
+
+// Used for rounding price to two decimal places
+float Food::roundTwo(float value)
+{
+	char container[40];
+	sprintf_s(container, "%.2f", value);
+	sscanf_s(container, "%f", &value);
+	return value;
 }
