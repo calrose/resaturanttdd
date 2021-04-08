@@ -4,31 +4,45 @@
 
 using namespace std;
 
-class Test
+class Food
 {
 public:
 
-	Test();
+	Food();
 	//~MyClass();
 	string getName();
 	string setName(string name);
+	float getPrice();
+	float setPrice(float price);
 private:
 	string name;
+	float price;
 };
 
-Test::Test()
+Food::Food()
 {
 	name = "";
 }
 
 
-string Test::getName()
+string Food::getName()
 {
 	return name;
 }
 
-string Test::setName(string rName)
+string Food::setName(string rName)
 {
 	name = rName;
 	return name;
+}
+
+float Food::getPrice()
+{
+	return price;
+}
+
+float Food::setPrice(float rPrice)
+{
+	price = rPrice;
+	return price;
 }

@@ -13,7 +13,7 @@ namespace RestaurantUnitTest
 		TEST_METHOD(TestRestaurantName)
 		{
 			// Make sure string is being set correctly
-			Test testObj;
+			Food testObj;
 			string expected = "test";
 			string empty = "";
 			testObj.setName(expected);
@@ -32,7 +32,7 @@ namespace RestaurantUnitTest
 		TEST_METHOD(TestRestaurantPrices)
 		{
 			// Test to see if prices are being set correctly
-			Test testObj;
+			Food testObj;
 			double expected = 5.99;
 			double blank = 0.0;
 			testObj.setPrice(expected);
