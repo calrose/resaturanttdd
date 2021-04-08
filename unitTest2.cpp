@@ -18,7 +18,7 @@ namespace RestaurantUnitTest
 			TestPerson person(expectedName);
 			Assert::IsNotNull(person);
 			Assert::AreEqual(expectedName, person.getName());
-			Assert::AreEqual(0, person.getOrderCost());
+			Assert::AreEqual(0, person.getTotalCost());
 		}
 
 		TEST_METHOD(TestPersonOrder)

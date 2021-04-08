@@ -13,6 +13,7 @@ public:
 	TestPerson(string name);
 	void addFood(Food newFood, double price);
 	float getTotalCost();
+	string getName();
 	vector<Food> getOrder();
 
 private:
@@ -24,11 +25,18 @@ private:
 TestPerson::TestPerson()
 {
 	personName = "";
+	totalPrice = 0;
 }
 
 TestPerson::TestPerson(string name)
 {
 	personName = name;
+	totalPrice = 0;
+}
+
+string TestPerson::getName()
+{
+	return personName;
 }
 
 void TestPerson::addFood(Food newFood, double price)
