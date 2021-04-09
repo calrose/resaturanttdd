@@ -57,6 +57,7 @@ float Food::setPrice(float rPrice)
 {
 	if (rPrice < 0.0)
 	{
+		price = 0.0;
 		cout << "Value " << rPrice << " is negative. Setting it to " << price << endl;
 		return price;
 	}
