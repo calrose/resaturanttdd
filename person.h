@@ -12,6 +12,7 @@ public:
 	TestPerson();
 	TestPerson(string name);
 	void addFood(Food newFood);
+	void printOrder(vector<Food> userOrder);
 	float getTotalCost();
 	string getName();
 	vector<Food> getOrder();
@@ -53,4 +54,12 @@ float TestPerson::getTotalCost()
 vector<Food> TestPerson::getOrder()
 {
 	return order;
+}
+
+void TestPerson::printOrder(vector<Food> userOrder)
+{
+	for (int i = 0; i < userOrder.size(); i++)
+	{
+		cout << userOrder[i].getName() << " ";
+	}
 }
