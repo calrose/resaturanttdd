@@ -11,7 +11,7 @@ class TestPerson
 public:
 	TestPerson();
 	TestPerson(string name);
-	void addFood(Food newFood, double price);
+	void addFood(Food newFood);
 	float getTotalCost();
 	string getName();
 	vector<Food> getOrder();
@@ -39,10 +39,9 @@ string TestPerson::getName()
 	return personName;
 }
 
-void TestPerson::addFood(Food newFood, double price)
+void TestPerson::addFood(Food newFood)
 {
 	order.push_back(newFood);
-	newFood.setPrice(price);
 	totalPrice += newFood.getPrice();
 }
 
